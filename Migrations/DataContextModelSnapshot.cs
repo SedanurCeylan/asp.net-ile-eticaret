@@ -49,6 +49,7 @@ namespace e_ticaret_proje.Migrations
                         new
                         {
                             Id = 1,
+                            Aciklama = "lorem falan filanfalan",
                             Aktif = false,
                             Anasayfa = true,
                             Fiyat = 10000.0,
@@ -58,6 +59,7 @@ namespace e_ticaret_proje.Migrations
                         new
                         {
                             Id = 2,
+                            Aciklama = "lorem falan filanfalan",
                             Aktif = true,
                             Anasayfa = true,
                             Fiyat = 20000.0,
@@ -67,6 +69,7 @@ namespace e_ticaret_proje.Migrations
                         new
                         {
                             Id = 3,
+                            Aciklama = "lorem falan filanfalan",
                             Aktif = true,
                             Anasayfa = false,
                             Fiyat = 30000.0,
@@ -76,6 +79,7 @@ namespace e_ticaret_proje.Migrations
                         new
                         {
                             Id = 4,
+                            Aciklama = "lorem falan filanfalan",
                             Aktif = false,
                             Anasayfa = true,
                             Fiyat = 40000.0,
@@ -85,6 +89,7 @@ namespace e_ticaret_proje.Migrations
                         new
                         {
                             Id = 5,
+                            Aciklama = "lorem falan filanfalan",
                             Aktif = true,
                             Anasayfa = true,
                             Fiyat = 50000.0,
@@ -94,6 +99,7 @@ namespace e_ticaret_proje.Migrations
                         new
                         {
                             Id = 6,
+                            Aciklama = "lorem falan filanfalan",
                             Aktif = true,
                             Anasayfa = false,
                             Fiyat = 60000.0,

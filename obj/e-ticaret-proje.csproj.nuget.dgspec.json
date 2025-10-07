@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DEEP THINK\\Desktop\\kisisel\\e-ticaret-proje\\e-ticaret-proje.csproj": {}
+    "/Users/seda/Desktop/admin-proje/asp.net-ile-eticaret/e-ticaret-proje.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DEEP THINK\\Desktop\\kisisel\\e-ticaret-proje\\e-ticaret-proje.csproj": {
+    "/Users/seda/Desktop/admin-proje/asp.net-ile-eticaret/e-ticaret-proje.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DEEP THINK\\Desktop\\kisisel\\e-ticaret-proje\\e-ticaret-proje.csproj",
+        "projectUniqueName": "/Users/seda/Desktop/admin-proje/asp.net-ile-eticaret/e-ticaret-proje.csproj",
         "projectName": "e-ticaret-proje",
-        "projectPath": "C:\\Users\\DEEP THINK\\Desktop\\kisisel\\e-ticaret-proje\\e-ticaret-proje.csproj",
-        "packagesPath": "C:\\Users\\DEEP THINK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DEEP THINK\\Desktop\\kisisel\\e-ticaret-proje\\obj\\",
+        "projectPath": "/Users/seda/Desktop/admin-proje/asp.net-ile-eticaret/e-ticaret-proje.csproj",
+        "packagesPath": "/Users/seda/.nuget/packages/",
+        "outputPath": "/Users/seda/Desktop/admin-proje/asp.net-ile-eticaret/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DEEP THINK\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/seda/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

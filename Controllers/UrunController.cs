@@ -14,8 +14,8 @@ public class UrunController : Controller
     {
         _context = context;
     }
-    
-     public ActionResult Index()
+
+    public ActionResult Index()
     {
         return View();
     }
@@ -24,5 +24,15 @@ public class UrunController : Controller
         //aktifi true olanlar ürün kısmına gelicek
         var urunler = _context.Urunler.Where(urun => urun.Aktif).ToList();
         return View(urunler);
+    }
+    
+    public ActionResult Details(int id)
+    {
+        //id bilgisine göre ürün getir
+        //var urun = _context.Urunler.FirstOrDefault(i => i.Id == id);
+        //üstteki ve alttaki aynı işlevde
+        var urun = _context.Urunler.Find(id);
+
+        return View(urun);
     }
 }
