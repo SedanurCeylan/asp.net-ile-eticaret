@@ -12,11 +12,11 @@ public class HomeController : Controller
         _context = context;
     }
 
-    public ActionResult List()
+    public ActionResult Index()
     {
-        var urunler = _context.Urunler.ToList();
-        return View();
-    }
 
-    
+        // Aktif ve anasayfa true ise anasayfada gösterme filtresi yapıyoruz i de olur urun diye de tanımlayabiliriz
+        var urunler = _context.Urunler.Where(i => i.Aktif && i.Anasayfa).ToList();
+        return View(urunler);
+   } 
 }

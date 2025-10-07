@@ -232,3 +232,4 @@ C:\Users\DEEP THINK\Desktop\kisisel\e-ticaret-proje\obj\Debug\net9.0\compressed\
 C:\Users\DEEP THINK\Desktop\kisisel\e-ticaret-proje\obj\Debug\net9.0\compressed\4kypv1o1z7-zg3n5jowfb.gz
 C:\Users\DEEP THINK\Desktop\kisisel\e-ticaret-proje\obj\Debug\net9.0\compressed\edgsmpvoh7-4otih3w1f2.gz
 C:\Users\DEEP THINK\Desktop\kisisel\e-ticaret-proje\obj\Debug\net9.0\compressed\gcvw5sfrpt-f6guyl0605.gz
+C:\Users\DEEP THINK\Desktop\kisisel\e-ticaret-proje\obj\Debug\net9.0\e-ticaret-proje.sourcelink.json

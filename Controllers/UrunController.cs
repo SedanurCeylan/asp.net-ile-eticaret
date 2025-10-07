@@ -21,7 +21,8 @@ public class UrunController : Controller
     }
     public ActionResult List()
     {
-        var urunler = _context.Urunler.ToList();
+        //aktifi true olanlar ürün kısmına gelicek
+        var urunler = _context.Urunler.Where(urun => urun.Aktif).ToList();
         return View(urunler);
     }
 }
