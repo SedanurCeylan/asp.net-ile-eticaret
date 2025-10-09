@@ -1,3 +1,6 @@
+using System.Reflection.PortableExecutable;
+using Microsoft.JSInterop.Infrastructure;
+
 namespace e_ticaret_proje.Models;
 
 public class Urun
@@ -9,6 +12,8 @@ public class Urun
     public string? Aciklama { get; set; }
     public bool Aktif { get; set; }
     public bool Anasayfa { get; set; }
+    public int KategoriId { get; set; }
+    public Kategori Kategori { get; set; } = null!; 
 }
 
 

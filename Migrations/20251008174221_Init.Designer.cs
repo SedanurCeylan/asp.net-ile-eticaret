@@ -10,14 +10,65 @@ using e_ticaret_proje.Models;
 namespace e_ticaret_proje.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20251007191355_SeedUrunAciklama")]
-    partial class SeedUrunAciklama
+    [Migration("20251008174221_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
+
+            modelBuilder.Entity("e_ticaret_proje.Models.Kategori", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("KategoriAdı")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kategoriler");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            KategoriAdı = "Telefon",
+                            Url = "telefon"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            KategoriAdı = "Elektronik",
+                            Url = "elektronik"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            KategoriAdı = "Beyaz Eşya",
+                            Url = "beyaz-esya"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            KategoriAdı = "Kozmetik",
+                            Url = "kozmetik"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            KategoriAdı = "Giyim",
+                            Url = "giyim"
+                        });
+                });
 
             modelBuilder.Entity("e_ticaret_proje.Models.Urun", b =>
                 {
@@ -37,6 +88,9 @@ namespace e_ticaret_proje.Migrations
                     b.Property<double>("Fiyat")
                         .HasColumnType("REAL");
 
+                    b.Property<int>("KategoriId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Resim")
                         .HasColumnType("TEXT");
 
@@ -45,6 +99,8 @@ namespace e_ticaret_proje.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("KategoriId");
 
                     b.ToTable("Urunler");
 
@@ -56,6 +112,7 @@ namespace e_ticaret_proje.Migrations
                             Aktif = false,
                             Anasayfa = true,
                             Fiyat = 10000.0,
+                            KategoriId = 1,
                             Resim = "1.jpeg",
                             UrunAdi = "Apple Watch 1"
                         },
@@ -66,6 +123,7 @@ namespace e_ticaret_proje.Migrations
                             Aktif = true,
                             Anasayfa = true,
                             Fiyat = 20000.0,
+                            KategoriId = 2,
                             Resim = "2.jpeg",
                             UrunAdi = "Apple Watch 2"
                         },
@@ -76,6 +134,7 @@ namespace e_ticaret_proje.Migrations
                             Aktif = true,
                             Anasayfa = false,
                             Fiyat = 30000.0,
+                            KategoriId = 3,
                             Resim = "3.jpeg",
                             UrunAdi = "Apple Watch 3"
                         },
@@ -86,6 +145,7 @@ namespace e_ticaret_proje.Migrations
                             Aktif = false,
                             Anasayfa = true,
                             Fiyat = 40000.0,
+                            KategoriId = 4,
                             Resim = "4.jpeg",
                             UrunAdi = "Apple Watch 4"
                         },
@@ -96,6 +156,7 @@ namespace e_ticaret_proje.Migrations
                             Aktif = true,
                             Anasayfa = true,
                             Fiyat = 50000.0,
+                            KategoriId = 4,
                             Resim = "5.jpeg",
                             UrunAdi = "Apple Watch 5"
                         },
@@ -106,9 +167,26 @@ namespace e_ticaret_proje.Migrations
                             Aktif = true,
                             Anasayfa = false,
                             Fiyat = 60000.0,
+                            KategoriId = 1,
                             Resim = "6.jpeg",
                             UrunAdi = "Apple Watch 6"
                         });
+                });
+
+            modelBuilder.Entity("e_ticaret_proje.Models.Urun", b =>
+                {
+                    b.HasOne("e_ticaret_proje.Models.Kategori", "Kategori")
+                        .WithMany("uruns")
+                        .HasForeignKey("KategoriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Kategori");
+                });
+
+            modelBuilder.Entity("e_ticaret_proje.Models.Kategori", b =>
+                {
+                    b.Navigation("uruns");
                 });
 #pragma warning restore 612, 618
         }
