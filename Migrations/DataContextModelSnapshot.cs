@@ -22,7 +22,7 @@ namespace e_ticaret_proje.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("KategoriAdı")
+                    b.Property<string>("KategoriAdi")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -38,32 +38,68 @@ namespace e_ticaret_proje.Migrations
                         new
                         {
                             Id = 1,
-                            KategoriAdı = "Telefon",
+                            KategoriAdi = "Telefon",
                             Url = "telefon"
                         },
                         new
                         {
                             Id = 2,
-                            KategoriAdı = "Elektronik",
+                            KategoriAdi = "Elektronik",
                             Url = "elektronik"
                         },
                         new
                         {
                             Id = 3,
-                            KategoriAdı = "Beyaz Eşya",
+                            KategoriAdi = "Beyaz Eşya",
                             Url = "beyaz-esya"
                         },
                         new
                         {
                             Id = 4,
-                            KategoriAdı = "Kozmetik",
+                            KategoriAdi = "Kozmetik",
                             Url = "kozmetik"
                         },
                         new
                         {
                             Id = 5,
-                            KategoriAdı = "Giyim",
+                            KategoriAdi = "Giyim",
                             Url = "giyim"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            KategoriAdi = "Kategori 1",
+                            Url = "Kategori-1"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            KategoriAdi = "Kategori 2",
+                            Url = "Kategori-2"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            KategoriAdi = "Kategori 3",
+                            Url = "Kategori-3"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            KategoriAdi = "Kategori 4",
+                            Url = "Kategori-4"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            KategoriAdi = "Kategori 5",
+                            Url = "Kategori-5"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            KategoriAdi = "Kategori 6",
+                            Url = "Kategori-6"
                         });
                 });
 

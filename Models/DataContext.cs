@@ -18,14 +18,33 @@ public class DataContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
+         modelBuilder.Entity<Slider>().HasData(
+            new List<Slider>()
+            {
+                new Slider(){ Id=1, Baslik="Slider 1 Başlık", Aciklama="Slider 1", Resim="slider-1.jpeg", Aktif=true, Index=0},
+                new Slider(){ Id=2, Baslik="Slider 2 Başlıkk", Aciklama="Slider 2", Resim="slider-2.jpeg", Aktif=true, Index=1},
+                new Slider(){ Id=3, Baslik="Slider 3 Başlık", Aciklama="Slider 3", Resim="slider-3.jpeg", Aktif=true, Index=2},
+                new Slider(){ Id=4, Baslik="Slider 4 Başlık", Aciklama="Slider 4", Resim="slider-1.jpeg", Aktif=true, Index=3},
+                new Slider(){ Id=5, Baslik="Slider 5 Başlık", Aciklama="Slider 5", Resim="slider-2.jpeg", Aktif=true, Index=4},
+                new Slider(){ Id=6, Baslik="Slider 6 Başlık", Aciklama="Slider 6", Resim="slider-3.jpeg", Aktif=true, Index=5}
+            }
+        );
+
+
         modelBuilder.Entity<Kategori>().HasData(
             new List<Kategori>()
             {
-                new Kategori(){ Id=1, KategoriAdı="Telefon", Url="telefon"},
-                new Kategori(){ Id=2, KategoriAdı="Elektronik", Url="elektronik"},
-                new Kategori(){ Id=3, KategoriAdı="Beyaz Eşya", Url="beyaz-esya"},
-                new Kategori(){ Id=4, KategoriAdı="Kozmetik", Url="kozmetik"},
-                new Kategori(){ Id=5, KategoriAdı="Giyim", Url="giyim"},
+                new Kategori(){ Id=1, KategoriAdi="Telefon", Url="telefon"},
+                new Kategori(){ Id=2, KategoriAdi="Elektronik", Url="elektronik"},
+                new Kategori(){ Id=3, KategoriAdi="Beyaz Eşya", Url="beyaz-esya"},
+                new Kategori(){ Id=4, KategoriAdi="Kozmetik", Url="kozmetik"},
+                new Kategori(){ Id=5, KategoriAdi="Giyim", Url="giyim"},
+                new Kategori(){ Id=6, KategoriAdi="Kategori 1", Url="Kategori-1"},
+                new Kategori(){ Id=7, KategoriAdi="Kategori 2", Url="Kategori-2"},
+                new Kategori(){ Id=8, KategoriAdi="Kategori 3", Url="Kategori-3"},
+                new Kategori(){ Id=9, KategoriAdi="Kategori 4", Url="Kategori-4"},
+                new Kategori(){ Id=10, KategoriAdi="Kategori 5", Url="Kategori-5"},
+                new Kategori(){ Id=11, KategoriAdi="Kategori 6", Url="Kategori-6"}
             }
         );
 

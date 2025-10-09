@@ -17,6 +17,8 @@ public class HomeController : Controller
 
         // Aktif ve anasayfa true ise anasayfada gösterme filtresi yapıyoruz i de olur urun diye de tanımlayabiliriz
         var urunler = _context.Urunler.Where(i => i.Aktif && i.Anasayfa).ToList();
+        //kategorileri menü sayfasına gönderdik bununla index.cshtml de de sayfaya gönderdik
+        ViewData["Kategoriler"] = _context.Kategoriler.ToList();
         return View(urunler);
    } 
 }
