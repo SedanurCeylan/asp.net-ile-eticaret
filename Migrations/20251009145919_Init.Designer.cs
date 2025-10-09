@@ -10,8 +10,8 @@ using e_ticaret_proje.Models;
 namespace e_ticaret_proje.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20251009133734_AddKategoriTable")]
-    partial class AddKategoriTable
+    [Migration("20251009145919_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,6 +104,33 @@ namespace e_ticaret_proje.Migrations
                             KategoriAdi = "Kategori 6",
                             Url = "Kategori-6"
                         });
+                });
+
+            modelBuilder.Entity("e_ticaret_proje.Models.Slider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Aciklama")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("Aktif")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Baslik")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Resim")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Sira")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sliderlar", (string)null);
                 });
 
             modelBuilder.Entity("e_ticaret_proje.Models.Urun", b =>

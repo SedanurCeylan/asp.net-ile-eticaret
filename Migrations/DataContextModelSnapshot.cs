@@ -103,6 +103,89 @@ namespace e_ticaret_proje.Migrations
                         });
                 });
 
+            modelBuilder.Entity("e_ticaret_proje.Models.Slider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Aciklama")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("Aktif")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Baslik")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Resim")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Sira")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sliderlar", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Aciklama = "Slider 1",
+                            Aktif = true,
+                            Baslik = "Slider 1 Başlık",
+                            Resim = "slider-1.jpeg",
+                            Sira = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Aciklama = "Slider 2",
+                            Aktif = true,
+                            Baslik = "Slider 2 Başlık",
+                            Resim = "slider-2.jpeg",
+                            Sira = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Aciklama = "Slider 3",
+                            Aktif = true,
+                            Baslik = "Slider 3 Başlık",
+                            Resim = "slider-3.jpeg",
+                            Sira = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Aciklama = "Slider 4",
+                            Aktif = true,
+                            Baslik = "Slider 4 Başlık",
+                            Resim = "slider-1.jpeg",
+                            Sira = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Aciklama = "Slider 5",
+                            Aktif = true,
+                            Baslik = "Slider 5 Başlık",
+                            Resim = "slider-2.jpeg",
+                            Sira = 4
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Aciklama = "Slider 6",
+                            Aktif = true,
+                            Baslik = "Slider 6 Başlık",
+                            Resim = "slider-3.jpeg",
+                            Sira = 5
+                        });
+                });
+
             modelBuilder.Entity("e_ticaret_proje.Models.Urun", b =>
                 {
                     b.Property<int>("Id")

@@ -12,23 +12,27 @@ public class DataContext : DbContext
     public DbSet<Urun> Urunler { get; set; }
 
     public DbSet<Kategori> Kategoriler { get; set; }
+    
+    public DbSet<Slider> Sliderlar { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-         modelBuilder.Entity<Slider>().HasData(
-            new List<Slider>()
-            {
-                new Slider(){ Id=1, Baslik="Slider 1 Başlık", Aciklama="Slider 1", Resim="slider-1.jpeg", Aktif=true, Index=0},
-                new Slider(){ Id=2, Baslik="Slider 2 Başlıkk", Aciklama="Slider 2", Resim="slider-2.jpeg", Aktif=true, Index=1},
-                new Slider(){ Id=3, Baslik="Slider 3 Başlık", Aciklama="Slider 3", Resim="slider-3.jpeg", Aktif=true, Index=2},
-                new Slider(){ Id=4, Baslik="Slider 4 Başlık", Aciklama="Slider 4", Resim="slider-1.jpeg", Aktif=true, Index=3},
-                new Slider(){ Id=5, Baslik="Slider 5 Başlık", Aciklama="Slider 5", Resim="slider-2.jpeg", Aktif=true, Index=4},
-                new Slider(){ Id=6, Baslik="Slider 6 Başlık", Aciklama="Slider 6", Resim="slider-3.jpeg", Aktif=true, Index=5}
-            }
-        );
+        modelBuilder.Entity<Slider>().ToTable("Sliderlar");
+
+        modelBuilder.Entity<Slider>().HasData(
+           new List<Slider>()
+           {
+                new Slider(){ Id=1, Baslik="Slider 1 Başlık", Aciklama="Slider 1", Resim="slider-1.jpeg", Aktif=true, Sira=0},
+                new Slider(){ Id=2, Baslik="Slider 2 Başlık", Aciklama="Slider 2", Resim="slider-2.jpeg", Aktif=true, Sira=1},
+                new Slider(){ Id=3, Baslik="Slider 3 Başlık", Aciklama="Slider 3", Resim="slider-3.jpeg", Aktif=true, Sira=2},
+                new Slider(){ Id=4, Baslik="Slider 4 Başlık", Aciklama="Slider 4", Resim="slider-1.jpeg", Aktif=true, Sira=3},
+                new Slider(){ Id=5, Baslik="Slider 5 Başlık", Aciklama="Slider 5", Resim="slider-2.jpeg", Aktif=true, Sira=4},
+                new Slider(){ Id=6, Baslik="Slider 6 Başlık", Aciklama="Slider 6", Resim="slider-3.jpeg", Aktif=true, Sira=5}
+           }
+       );
 
 
         modelBuilder.Entity<Kategori>().HasData(
@@ -65,9 +69,6 @@ public class DataContext : DbContext
 }
 
 //DataContext _context = new DataContext();
-
-
-
 
 
 

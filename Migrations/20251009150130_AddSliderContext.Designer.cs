@@ -10,8 +10,8 @@ using e_ticaret_proje.Models;
 namespace e_ticaret_proje.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20251008174221_Init")]
-    partial class Init
+    [Migration("20251009150130_AddSliderContext")]
+    partial class AddSliderContext
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace e_ticaret_proje.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("KategoriAdı")
+                    b.Property<string>("KategoriAdi")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -41,32 +41,151 @@ namespace e_ticaret_proje.Migrations
                         new
                         {
                             Id = 1,
-                            KategoriAdı = "Telefon",
+                            KategoriAdi = "Telefon",
                             Url = "telefon"
                         },
                         new
                         {
                             Id = 2,
-                            KategoriAdı = "Elektronik",
+                            KategoriAdi = "Elektronik",
                             Url = "elektronik"
                         },
                         new
                         {
                             Id = 3,
-                            KategoriAdı = "Beyaz Eşya",
+                            KategoriAdi = "Beyaz Eşya",
                             Url = "beyaz-esya"
                         },
                         new
                         {
                             Id = 4,
-                            KategoriAdı = "Kozmetik",
+                            KategoriAdi = "Kozmetik",
                             Url = "kozmetik"
                         },
                         new
                         {
                             Id = 5,
-                            KategoriAdı = "Giyim",
+                            KategoriAdi = "Giyim",
                             Url = "giyim"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            KategoriAdi = "Kategori 1",
+                            Url = "Kategori-1"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            KategoriAdi = "Kategori 2",
+                            Url = "Kategori-2"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            KategoriAdi = "Kategori 3",
+                            Url = "Kategori-3"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            KategoriAdi = "Kategori 4",
+                            Url = "Kategori-4"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            KategoriAdi = "Kategori 5",
+                            Url = "Kategori-5"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            KategoriAdi = "Kategori 6",
+                            Url = "Kategori-6"
+                        });
+                });
+
+            modelBuilder.Entity("e_ticaret_proje.Models.Slider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Aciklama")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("Aktif")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Baslik")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Resim")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Sira")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sliderlar", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Aciklama = "Slider 1",
+                            Aktif = true,
+                            Baslik = "Slider 1 Başlık",
+                            Resim = "slider-1.jpeg",
+                            Sira = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Aciklama = "Slider 2",
+                            Aktif = true,
+                            Baslik = "Slider 2 Başlık",
+                            Resim = "slider-2.jpeg",
+                            Sira = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Aciklama = "Slider 3",
+                            Aktif = true,
+                            Baslik = "Slider 3 Başlık",
+                            Resim = "slider-3.jpeg",
+                            Sira = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Aciklama = "Slider 4",
+                            Aktif = true,
+                            Baslik = "Slider 4 Başlık",
+                            Resim = "slider-1.jpeg",
+                            Sira = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Aciklama = "Slider 5",
+                            Aktif = true,
+                            Baslik = "Slider 5 Başlık",
+                            Resim = "slider-2.jpeg",
+                            Sira = 4
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Aciklama = "Slider 6",
+                            Aktif = true,
+                            Baslik = "Slider 6 Başlık",
+                            Resim = "slider-3.jpeg",
+                            Sira = 5
                         });
                 });
 

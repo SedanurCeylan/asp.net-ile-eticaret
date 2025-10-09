@@ -18,12 +18,29 @@ namespace e_ticaret_proje.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    KategoriAdı = table.Column<string>(type: "TEXT", nullable: false),
+                    KategoriAdi = table.Column<string>(type: "TEXT", nullable: false),
                     Url = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Kategoriler", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sliderlar",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Baslik = table.Column<string>(type: "TEXT", nullable: true),
+                    Aciklama = table.Column<string>(type: "TEXT", nullable: true),
+                    Resim = table.Column<string>(type: "TEXT", nullable: false),
+                    Sira = table.Column<int>(type: "INTEGER", nullable: false),
+                    Aktif = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sliderlar", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -53,14 +70,20 @@ namespace e_ticaret_proje.Migrations
 
             migrationBuilder.InsertData(
                 table: "Kategoriler",
-                columns: new[] { "Id", "KategoriAdı", "Url" },
+                columns: new[] { "Id", "KategoriAdi", "Url" },
                 values: new object[,]
                 {
                     { 1, "Telefon", "telefon" },
                     { 2, "Elektronik", "elektronik" },
                     { 3, "Beyaz Eşya", "beyaz-esya" },
                     { 4, "Kozmetik", "kozmetik" },
-                    { 5, "Giyim", "giyim" }
+                    { 5, "Giyim", "giyim" },
+                    { 6, "Kategori 1", "Kategori-1" },
+                    { 7, "Kategori 2", "Kategori-2" },
+                    { 8, "Kategori 3", "Kategori-3" },
+                    { 9, "Kategori 4", "Kategori-4" },
+                    { 10, "Kategori 5", "Kategori-5" },
+                    { 11, "Kategori 6", "Kategori-6" }
                 });
 
             migrationBuilder.InsertData(
@@ -85,6 +108,9 @@ namespace e_ticaret_proje.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Sliderlar");
+
             migrationBuilder.DropTable(
                 name: "Urunler");
 
