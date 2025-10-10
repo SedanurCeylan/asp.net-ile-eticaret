@@ -1,0 +1,41 @@
+ @model List<Slider>
+
+ <div id="slider" class="carousel slide">
+                        <div class="carousel-indicators">
+
+                        @{
+                            int x=0;
+                            foreach(var item in Model)
+                            {
+                                <button type="button" data-bs-target="#slider" data-bs-slide-to="@x" class="@(x==0 ? "active":"")"></button>
+                                x+=1;
+                            }
+                        }
+                           
+                        </div>
+                        <div class="carousel-inner">
+
+                        @{
+                            int y = 0;
+                           @foreach(var item in Model)
+                            {
+                                //burda y 0 a eşise yani ilk slidersa aktif olsun diye yaptık
+                                <div class="carousel-item @(y==0 ? "active":"")">
+                                    <img src="img/@item.Resim" class="d-block w-100" alt="@item.Baslik">
+                                </div>
+                                y+=1;
+                            } 
+                        }
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#slider"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#slider"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>

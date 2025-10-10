@@ -19,10 +19,10 @@ public class UrunController : Controller
     {
         return View();
     }
-    public ActionResult List()
+    public ActionResult List(string url)
     {
         //aktifi true olanlar ürün kısmına gelicek
-        var urunler = _context.Urunler.Where(urun => urun.Aktif).ToList();
+        var urunler = _context.Urunler.Where(urun => urun.Aktif && urun.Kategori.Url == url).ToList();
         return View(urunler);
     }
     
@@ -32,6 +32,16 @@ public class UrunController : Controller
         //var urun = _context.Urunler.FirstOrDefault(i => i.Id == id);
         //üstteki ve alttaki aynı işlevde
         var urun = _context.Urunler.Find(id);
+
+        if (urun == null)
+        {
+            return RedirectToAction("List");
+        }
+
+        ViewData["BenzerUrunler"] = _context.Urunler
+        .Where(i => i.Aktif && i.KategoriId == urun.KategoriId && i.Id != id)
+        .Take(4)
+        .ToList();
 
         return View(urun);
     }
