@@ -1,5 +1,6 @@
 using e_ticaret_proje.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyModel;
 
 namespace e_ticaret_proje.Controllers;
@@ -17,8 +18,22 @@ public class UrunController : Controller
 
     public ActionResult Index()
     {
-        return View();
+
+        var urunler = _context.Urunler.Select(i => new UrunGetModel
+        {
+            Id = i.Id,
+            UrunAdi = i.UrunAdi,
+            Fiyat = i.Fiyat,
+            Aktif = i.Aktif,
+            Anasayfa = i.Anasayfa,
+            KategoriAdi = i.Kategori.KategoriAdi,
+            Resim=i.Resim
+        }).ToList();
+        return View(urunler);
     }
+
+
+
     public ActionResult List(string url,string q)
 {
     var query = _context.Urunler.Where(i=> i.Aktif);
@@ -36,7 +51,7 @@ public class UrunController : Controller
 
     return View(query.ToList());
 }
-    
+
     public ActionResult Details(int id)
     {
         //id bilgisine göre ürün getir
@@ -46,7 +61,7 @@ public class UrunController : Controller
 
         if (urun == null)
         {
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
         ViewData["BenzerUrunler"] = _context.Urunler
@@ -55,5 +70,31 @@ public class UrunController : Controller
                                         .ToList();
 
         return View(urun);
+    }
+
+    [HttpGet]
+    public ActionResult Create()
+    {
+        return View();
+    }
+    
+    [HttpPost]
+     public ActionResult Create(string UrunAdi ,string UrunAciklama, double UrunFiyat)
+    {
+        var entity = new Urun()
+        {
+            UrunAdi = UrunAdi,
+            Aciklama = UrunAciklama,
+            Fiyat = UrunFiyat,
+            Aktif = true,
+            Anasayfa = true,
+            KategoriId = 1,
+            Resim = "1.jpeg"
+        };
+        
+        _context.Urunler.Add(entity);
+        _context.SaveChanges();
+
+         return RedirectToAction("Index");
     }
 }

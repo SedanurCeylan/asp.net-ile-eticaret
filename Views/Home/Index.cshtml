@@ -5,7 +5,7 @@
             <div class="card shadow">
                 <div class="row gx-2 p-1 p-lg-2">
                 <div class="col-lg-3 d-none d-lg-block">
-                   @await Html.PartialAsync("Partials/_Menu",ViewData["Kategoriler"])
+                   @await Html.PartialAsync("Partials/Site/_Menu",ViewData["Kategoriler"])
                 </div>
                 <div class="col-lg-9">
                      
@@ -23,7 +23,7 @@
                 @foreach(var urun in Model)
                 {
                 <div class="col">
-                    @await Html.PartialAsync("Partials/_UrunCard", urun)
+                    @await Html.PartialAsync("Partials/Site/_UrunCard", urun)
                 </div>
                 }
                 

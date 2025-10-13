@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="~/css/styles.css">
+    <link rel="stylesheet" href="~/css/site.css">
     <title>E-Ticaret</title>
 </head>
 
 <body class="bg-light">
 
     <header>
-        @await Html.PartialAsync("Partials/_Topbar")
+        @await Html.PartialAsync("Partials/Site/_Topbar")
         @await Component.InvokeAsync("Navbar")
         
     </header>
@@ -27,7 +27,7 @@
     </main>
     
 
-    @await Html.PartialAsync("Partials/_Footer")
+    @await Html.PartialAsync("Partials/Site/_Footer")
 
     <script src="~/js/fslightbox.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"

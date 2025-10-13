@@ -667,4 +667,5 @@ C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\refint
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.pdb
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.genruntimeconfig.cache
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\ref\e-ticaret-proje.dll
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\ffg8sir1gs-cfxdy1jlj1.gz
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\kcq61if28l-75e56g2q4j.gz
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\6eobabc573-l1jao3f9o2.gz
