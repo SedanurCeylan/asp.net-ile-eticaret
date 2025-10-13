@@ -19,12 +19,23 @@ public class UrunController : Controller
     {
         return View();
     }
-    public ActionResult List(string url)
+    public ActionResult List(string url,string q)
+{
+    var query = _context.Urunler.Where(i=> i.Aktif);
+
+    if (!string.IsNullOrEmpty(url))
     {
-        //aktifi true olanlar ürün kısmına gelicek
-        var urunler = _context.Urunler.Where(urun => urun.Aktif && urun.Kategori.Url == url).ToList();
-        return View(urunler);
+        query = query.Where(i =>i.Kategori.Url == url);
     }
+
+    if (!string.IsNullOrEmpty(q)) 
+    {
+            query = query.Where(i => i.UrunAdi.ToLower().Contains(q.ToLower()));
+            ViewData["q"] = q;
+    }
+
+    return View(query.ToList());
+}
     
     public ActionResult Details(int id)
     {
@@ -35,13 +46,13 @@ public class UrunController : Controller
 
         if (urun == null)
         {
-            return RedirectToAction("List");
+            return RedirectToAction("Index","Home");
         }
 
         ViewData["BenzerUrunler"] = _context.Urunler
-        .Where(i => i.Aktif && i.KategoriId == urun.KategoriId && i.Id != id)
-        .Take(4)
-        .ToList();
+                                        .Where(i => i.Aktif && i.KategoriId == urun.KategoriId && i.Id != id)
+                                        .Take(4)
+                                        .ToList();
 
         return View(urun);
     }

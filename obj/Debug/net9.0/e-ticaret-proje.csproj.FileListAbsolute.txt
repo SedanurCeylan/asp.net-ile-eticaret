@@ -595,7 +595,6 @@ C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\rjimsw
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\scopedcss\bundle\e-ticaret-proje.styles.css
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\ffg8sir1gs-8iv1o13xr2.gz
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\wa9v4v1umj-61n19gt1b8.gz
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\gcvw5sfrpt-f6guyl0605.gz
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\ts3dssctx7-xtxxf3hu2r.gz
@@ -668,3 +667,4 @@ C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\refint
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.pdb
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.genruntimeconfig.cache
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\ref\e-ticaret-proje.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\ffg8sir1gs-cfxdy1jlj1.gz

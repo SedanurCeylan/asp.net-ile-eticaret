@@ -34,8 +34,8 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "urunler_by_kategori",
-    pattern: "urunler/{url}",
-    defaults: new { Controller = "Urun", Action = "List" })
+    pattern: "urunler/{url?}",
+    defaults: new { controller = "Urun", Action = "List" })
     .WithStaticAssets();
 
 app.MapControllerRoute(
