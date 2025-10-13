@@ -1,6 +1,7 @@
 using e_ticaret_proje.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.DependencyModel;
 
 namespace e_ticaret_proje.Controllers;
@@ -75,21 +76,22 @@ public class UrunController : Controller
     [HttpGet]
     public ActionResult Create()
     {
+        ViewData["Kategoriler"] = _context.Kategoriler.ToList();
         return View();
     }
     
     [HttpPost]
-     public ActionResult Create(string UrunAdi ,string UrunAciklama, double UrunFiyat)
+     public ActionResult Create(UrunCreateModel model)
     {
         var entity = new Urun()
         {
-            UrunAdi = UrunAdi,
-            Aciklama = UrunAciklama,
-            Fiyat = UrunFiyat,
-            Aktif = true,
-            Anasayfa = true,
-            KategoriId = 1,
-            Resim = "1.jpeg"
+            UrunAdi = model.UrunAdi,
+            Aciklama = model.Aciklama,
+            Fiyat = model.Fiyat,
+            Aktif = model.Aktif,
+            Anasayfa = model.Anasayfa,
+            KategoriId = model.KategoriId,
+            Resim = "1.jpeg" ///upload
         };
         
         _context.Urunler.Add(entity);
