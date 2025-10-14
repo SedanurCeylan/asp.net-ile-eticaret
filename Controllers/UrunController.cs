@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using e_ticaret_proje.Models;
 using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Mvc;
@@ -29,30 +30,30 @@ public class UrunController : Controller
             Aktif = i.Aktif,
             Anasayfa = i.Anasayfa,
             KategoriAdi = i.Kategori.KategoriAdi,
-            Resim=i.Resim
+            Resim = i.Resim
         }).ToList();
         return View(urunler);
     }
 
 
 
-    public ActionResult List(string url,string q)
-{
-    var query = _context.Urunler.Where(i=> i.Aktif);
-
-    if (!string.IsNullOrEmpty(url))
+    public ActionResult List(string url, string q)
     {
-        query = query.Where(i =>i.Kategori.Url == url);
-    }
+        var query = _context.Urunler.Where(i => i.Aktif);
 
-    if (!string.IsNullOrEmpty(q)) 
-    {
+        if (!string.IsNullOrEmpty(url))
+        {
+            query = query.Where(i => i.Kategori.Url == url);
+        }
+
+        if (!string.IsNullOrEmpty(q))
+        {
             query = query.Where(i => i.UrunAdi.ToLower().Contains(q.ToLower()));
             ViewData["q"] = q;
-    }
+        }
 
-    return View(query.ToList());
-}
+        return View(query.ToList());
+    }
 
     public ActionResult Details(int id)
     {
@@ -82,8 +83,20 @@ public class UrunController : Controller
     }
 
     [HttpPost]
-    public ActionResult Create(UrunCreateModel model)
+    public async Task<ActionResult> Create(UrunCreateModel model)
     {
+        //random isim üretiliyor foto içim
+        var filename = Path.GetRandomFileName() + ".jpg";
+        //fotolar nereye kaydedilcek onu seçicez
+        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", filename);
+
+
+        //kullanılmayınca sil diyoruz
+        using (var stream = new FileStream(path, FileMode.Create))
+        {
+            await model.Resim!.CopyToAsync(stream);
+        }
+
         var entity = new Urun()
         {
             UrunAdi = model.UrunAdi,
@@ -92,7 +105,7 @@ public class UrunController : Controller
             Aktif = model.Aktif,
             Anasayfa = model.Anasayfa,
             KategoriId = model.KategoriId,
-            Resim = "1.jpeg" ///upload
+            Resim = filename
         };
 
         _context.Urunler.Add(entity);
@@ -113,16 +126,16 @@ public class UrunController : Controller
             Aktif = i.Aktif,
             Anasayfa = i.Anasayfa,
             KategoriId = i.KategoriId,
-            Resim = i.Resim
+            ResimAdi = i.Resim
         }).FirstOrDefault(i => i.Id == id);
-        
+
         ViewData["Kategoriler"] = _context.Kategoriler.AsNoTracking().ToList();
         return View(entity);
     }
-    
+
 
     [HttpPost]
-     public ActionResult Edit(int id, UrunEditModel model)
+    public async Task<ActionResult> Edit(int id, UrunEditModel model)
     {
 
         if (id != model.Id)
@@ -134,10 +147,24 @@ public class UrunController : Controller
 
         if (entity != null)
         {
+            if (model.ResimDosyasi != null)
+            {
+                //random isim üretiliyor foto içim
+                var filename = Path.GetRandomFileName() + ".jpg";
+                //fotolar nereye kaydedilcek onu seçicez
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", filename);
+
+
+                //kullanılmayınca sil diyoruz
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await model.ResimDosyasi!.CopyToAsync(stream);
+                }
+                entity.Resim = filename;
+            }
             entity.UrunAdi = model.UrunAdi;
             entity.Aciklama = model.Aciklama;
             entity.Fiyat = model.Fiyat;
-            // entity.Resim = model.Resim;
             entity.Aktif = model.Aktif;
             entity.Anasayfa = model.Anasayfa;
             entity.KategoriId = model.KategoriId;

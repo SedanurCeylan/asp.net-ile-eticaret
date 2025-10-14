@@ -12,7 +12,7 @@ public class UrunCreateModel
     public double Fiyat { get; set; }
 
     [Display(Name = "Ürün Resmi:")]
-    public string? Resim { get; set; }
+    public IFormFile Resim { get; set; }
 
     [Display(Name = "Ürün Açıklaması:")]
     public string? Aciklama { get; set; }
