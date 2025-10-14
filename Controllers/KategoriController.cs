@@ -43,17 +43,21 @@ public class KategoriController : Controller
     //inputların namelerini parametre veriyoruz
     public ActionResult Create(KategoriCreateModel model)
     {
-        var entity = new Kategori
+        if (ModelState.IsValid)
         {
-            //burda da parametrelerle veriatabını eşitliyoruz
-            KategoriAdi = model.KategoriAdi,
-            Url = model.Url
-        };
-        _context.Kategoriler.Add(entity);
-        //burda değişiklikleri kaydetme veritabanına aktarma işlemi yapıyoruz
-        _context.SaveChanges();
+            var entity = new Kategori
+            {
+                //burda da parametrelerle veriatabını eşitliyoruz
+                KategoriAdi = model.KategoriAdi,
+                Url = model.Url
+            };
+            _context.Kategoriler.Add(entity);
+            //burda değişiklikleri kaydetme veritabanına aktarma işlemi yapıyoruz
+            _context.SaveChanges();
 
-        return RedirectToAction("Index");
+            return RedirectToAction("Index");
+        }
+        return View(model);
     }
 
     [HttpGet]
@@ -76,17 +80,22 @@ public class KategoriController : Controller
         {
             return NotFound();
         }
-        var entity = _context.Kategoriler.FirstOrDefault(i => i.Id == model.Id);
-        if (entity != null)
+
+        if (ModelState.IsValid)
         {
-            entity.KategoriAdi = model.KategoriAdi;
-            entity.Url = model.Url;
+            var entity = _context.Kategoriler.FirstOrDefault(i => i.Id == model.Id);
+            if (entity != null)
+            {
+                entity.KategoriAdi = model.KategoriAdi;
+                entity.Url = model.Url;
 
-            _context.SaveChanges();
+                _context.SaveChanges();
 
-            TempData["Mesaj"] = $"{entity.KategoriAdi} kategorisi güncellendi";
+                TempData["Mesaj"] = $"{entity.KategoriAdi} kategorisi güncellendi";
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
         return View(model);
