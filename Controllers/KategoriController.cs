@@ -77,17 +77,19 @@ public class KategoriController : Controller
             return NotFound();
         }
         var entity = _context.Kategoriler.FirstOrDefault(i => i.Id == model.Id);
-        if(entity != null)
+        if (entity != null)
         {
             entity.KategoriAdi = model.KategoriAdi;
             entity.Url = model.Url;
 
             _context.SaveChanges();
 
+            TempData["Mesaj"] = $"{entity.KategoriAdi} kategorisi güncellendi";
+
             return RedirectToAction("Index");
         }
 
-        return View();
+        return View(model);
     }
 
 

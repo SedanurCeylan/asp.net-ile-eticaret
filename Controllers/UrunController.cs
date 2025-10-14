@@ -1,4 +1,5 @@
 using e_ticaret_proje.Models;
+using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -79,9 +80,9 @@ public class UrunController : Controller
         ViewData["Kategoriler"] = _context.Kategoriler.ToList();
         return View();
     }
-    
+
     [HttpPost]
-     public ActionResult Create(UrunCreateModel model)
+    public ActionResult Create(UrunCreateModel model)
     {
         var entity = new Urun()
         {
@@ -93,10 +94,60 @@ public class UrunController : Controller
             KategoriId = model.KategoriId,
             Resim = "1.jpeg" ///upload
         };
-        
+
         _context.Urunler.Add(entity);
         _context.SaveChanges();
 
-         return RedirectToAction("Index");
+        return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public ActionResult Edit(int id)
+    {
+        var entity = _context.Urunler.Select(i => new UrunEditModel
+        {
+            Id = i.Id,
+            UrunAdi = i.UrunAdi,
+            Aciklama = i.Aciklama,
+            Fiyat = i.Fiyat,
+            Aktif = i.Aktif,
+            Anasayfa = i.Anasayfa,
+            KategoriId = i.KategoriId,
+            Resim = i.Resim
+        }).FirstOrDefault(i => i.Id == id);
+        
+        ViewData["Kategoriler"] = _context.Kategoriler.AsNoTracking().ToList();
+        return View(entity);
+    }
+    
+
+    [HttpPost]
+     public ActionResult Edit(int id, UrunEditModel model)
+    {
+
+        if (id != model.Id)
+        {
+            return RedirectToAction("Index");
+        }
+
+        var entity = _context.Urunler.FirstOrDefault(i => i.Id == model.Id);
+
+        if (entity != null)
+        {
+            entity.UrunAdi = model.UrunAdi;
+            entity.Aciklama = model.Aciklama;
+            entity.Fiyat = model.Fiyat;
+            // entity.Resim = model.Resim;
+            entity.Aktif = model.Aktif;
+            entity.Anasayfa = model.Anasayfa;
+            entity.KategoriId = model.KategoriId;
+
+            _context.SaveChanges();
+
+            TempData["Mesaj"] = $"{entity.UrunAdi} ürünü güncellendi.";
+
+            return RedirectToAction("Index");
+        }
+        return View(model);
     }
 }
