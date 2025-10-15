@@ -19,10 +19,15 @@ public class UrunController : Controller
         _context = context;
     }
 
-    public ActionResult Index()
+    public ActionResult Index(int? kategori)
     {
+        var query = _context.Urunler.AsQueryable();
+        if (kategori != null)
+        {
+            query = query.Where(i => i.KategoriId == kategori);
+        }
 
-        var urunler = _context.Urunler.Select(i => new UrunGetModel
+        var urunler = query.Select(i => new UrunGetModel
         {
             Id = i.Id,
             UrunAdi = i.UrunAdi,
@@ -32,6 +37,9 @@ public class UrunController : Controller
             KategoriAdi = i.Kategori.KategoriAdi,
             Resim = i.Resim
         }).ToList();
+
+        ViewData["Kategoriler"] = _context.Kategoriler.AsNoTracking().ToList();
+        ViewBag.SeciliKategori = kategori;
         return View(urunler);
     }
 
@@ -190,5 +198,41 @@ public class UrunController : Controller
         }
         ViewData["Kategoriler"] = _context.Kategoriler.AsNoTracking().ToList();
         return View(model);
+    }
+
+
+    
+    public ActionResult Delete(int? id)
+    {
+        if (id == null)
+        {
+            return RedirectToAction("Index");
+        }
+        var entity = _context.Urunler.FirstOrDefault(i => i.Id == id);
+        if (entity != null)
+        {
+            return View(entity);
+        }
+        return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteConfirm(int? id)
+    {
+
+        //burasyı uyarı verdirmesi için yaptık önce üstteki metot çalışoyor deleteye gönderiyor deletede evet dersek bu metod çalışıyor
+        if (id == null)
+        {
+            return RedirectToAction("Index");
+        }
+        var entity = _context.Urunler.FirstOrDefault(i => i.Id == id);
+        if (entity != null)
+        {
+            _context.Urunler.Remove(entity);
+            _context.SaveChanges();
+
+            TempData["Mesaj"] = $"{entity.UrunAdi} ürünü silindi";
+        }
+        return RedirectToAction("Index");
     }
 }
