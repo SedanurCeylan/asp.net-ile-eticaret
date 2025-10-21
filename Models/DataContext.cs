@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace e_ticaret_proje.Models;
 
-public class DataContext : IdentityDbContext<IdentityUser>
+public class DataContext : IdentityDbContext<AppUser,AppRole,int>
 {
     //constructor tanımlamamız lazım
     public DataContext(DbContextOptions<DataContext> options) : base(options)

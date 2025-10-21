@@ -18,7 +18,9 @@
 
     <header>
         @await Html.PartialAsync("Partials/Site/_Topbar")
-        @await Component.InvokeAsync("Navbar")
+
+        @* her sayfada olmayabilir *@
+        @RenderSection("Bar",required:false)
         
     </header>
 
