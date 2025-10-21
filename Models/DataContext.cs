@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace e_ticaret_proje.Models;
 
-public class DataContext : DbContext
+public class DataContext : IdentityDbContext<IdentityUser>
 {
     //constructor tanımlamamız lazım
     public DataContext(DbContextOptions<DataContext> options) : base(options)
@@ -67,6 +69,9 @@ public class DataContext : DbContext
 
     }
 }
+
+
+
 
 //DataContext _context = new DataContext();
 

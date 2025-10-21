@@ -1,4 +1,5 @@
 using e_ticaret_proje.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,8 @@ builder.Services.AddDbContext<DataContext>(options =>
     ("DefaultConnection");
     options.UseSqlite(connectionString);
 });
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DataContext>();
 
 var app = builder.Build();
 

@@ -669,3 +669,8 @@ C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-tica
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\ref\e-ticaret-proje.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\kcq61if28l-75e56g2q4j.gz
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\6eobabc573-l1jao3f9o2.gz
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
