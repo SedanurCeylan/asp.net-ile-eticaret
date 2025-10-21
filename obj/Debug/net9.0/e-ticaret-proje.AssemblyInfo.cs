@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("e-ticaret-proje")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1368fb1c5285b8205f0406f22348c534e488d08")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6cf4b496e786566d2688cff7bf45120e23902592")]
 [assembly: System.Reflection.AssemblyProductAttribute("e-ticaret-proje")]
 [assembly: System.Reflection.AssemblyTitleAttribute("e-ticaret-proje")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
