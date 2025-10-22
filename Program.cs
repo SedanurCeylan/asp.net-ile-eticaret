@@ -22,7 +22,7 @@ builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<DataCo
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // kullanıcı max 5 kere yanlış şifre girebilir 5 den sonra hesabı 5 dakika kilitlenir
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(3);
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.AllowedForNewUsers = true;
 
@@ -37,6 +37,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 
     // options.User.AllowedUserNameCharacters =
     //         "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@";
+
 });
 
 //admin paneli yetkilendirmesi
@@ -62,7 +63,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseStaticFiles();
