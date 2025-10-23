@@ -77,7 +77,8 @@ public class AccountController : Controller
                     {
                         return Redirect(returnUrl);
                     }
-                    else RedirectToAction("Index", "Home");
+                    else
+                        return RedirectToAction("Index", "Home");
 
                 }
                 //hesabın kilitlenmesi durumu

@@ -235,4 +235,6 @@ public class UrunController : Controller
         }
         return RedirectToAction("Index");
     }
+
+    
 }
