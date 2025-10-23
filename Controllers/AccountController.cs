@@ -55,8 +55,8 @@ public class AccountController : Controller
         // Sayfa ilk açıldığında boş model gönderiyoruz
         return View(new AccountLoginModel());
     }
-    
-    public async Task<ActionResult> Login(AccountLoginModel model , string? returnUrl)
+
+    public async Task<ActionResult> Login(AccountLoginModel model, string? returnUrl)
     {
 
         if (ModelState.IsValid)
@@ -72,7 +72,7 @@ public class AccountController : Controller
                 {
                     await _userManager.ResetAccessFailedCountAsync(user);
                     await _userManager.SetLockoutEndDateAsync(user, null);
-                    
+
 
                     if (!string.IsNullOrEmpty(returnUrl))
                     {
@@ -119,4 +119,9 @@ public class AccountController : Controller
         return View();
     }
 
+
+    public ActionResult AccessDenied()
+    {
+        return View();
+    }
 } 
