@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using e_ticaret_proje.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.DependencyModel;
 
 namespace e_ticaret_proje.Controllers;
 
+    [Authorize(Roles = "Admin")]
 public class UrunController : Controller
 {
 
@@ -19,6 +21,7 @@ public class UrunController : Controller
         _context = context;
     }
 
+    
     public ActionResult Index(int? kategori)
     {
         var query = _context.Urunler.AsQueryable();
@@ -44,7 +47,8 @@ public class UrunController : Controller
     }
 
 
-
+    //tüm sayfa başına yazarsak bunu dışta tutuyoruz
+     [AllowAnonymous]
     public ActionResult List(string url, string q)
     {
         var query = _context.Urunler.Where(i => i.Aktif);
@@ -83,6 +87,7 @@ public class UrunController : Controller
         return View(urun);
     }
 
+    
     [HttpGet]
     public ActionResult Create()
     {
@@ -201,7 +206,6 @@ public class UrunController : Controller
     }
 
 
-    
     public ActionResult Delete(int? id)
     {
         if (id == null)

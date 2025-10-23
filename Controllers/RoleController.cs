@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace e_ticaret_proje.Controllers;
 
+[Authorize(Roles ="Admin")]
 public class RoleController : Controller
 {
     private RoleManager<AppRole> _roleManager;
@@ -119,7 +120,7 @@ public class RoleController : Controller
         {
             return RedirectToAction("Index");
         }
-          var entity = await _roleManager.FindByIdAsync(id);
+        var entity = await _roleManager.FindByIdAsync(id);
 
         if (entity != null)
         {
@@ -129,5 +130,5 @@ public class RoleController : Controller
         }
         return RedirectToAction("Index");
     }
-    
+
 }

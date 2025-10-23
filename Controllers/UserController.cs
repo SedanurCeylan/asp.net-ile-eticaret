@@ -1,11 +1,13 @@
 using System.Threading.Tasks;
 using e_ticaret_proje.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace e_ticaret_proje.Controllers;
-
+    
+    [Authorize(Roles = "Admin")]
 public class UserController : Controller
 {
 

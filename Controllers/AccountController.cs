@@ -55,6 +55,7 @@ public class AccountController : Controller
         // Sayfa ilk açıldığında boş model gönderiyoruz
         return View(new AccountLoginModel());
     }
+    
     public async Task<ActionResult> Login(AccountLoginModel model , string? returnUrl)
     {
 
@@ -102,6 +103,7 @@ public class AccountController : Controller
         return View();
     }
 
+    [Authorize]
     public async Task<ActionResult> Logout()
     {
         await _signInManager.SignOutAsync();

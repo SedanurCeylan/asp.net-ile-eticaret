@@ -1,11 +1,13 @@
 using e_ticaret_proje.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace e_ticaret_proje.Controllers;
 
+[Authorize(Roles ="Admin")]
 public class SliderController : Controller
 {
-    
+
     private readonly DataContext _context;
 
     public SliderController(DataContext context)
@@ -24,9 +26,9 @@ public class SliderController : Controller
             Sira = i.Sira
         }).ToList());
     }
-    
 
-   public ActionResult Create()
+
+    public ActionResult Create()
     {
         return View();
     }
@@ -67,9 +69,9 @@ public class SliderController : Controller
 
         return View(model);
     }
-    
 
-     [HttpGet]
+
+    [HttpGet]
     public ActionResult Edit(int id)
     {
         var entity = _context.Sliderlar.Select(i => new SliderEditModel
@@ -131,7 +133,7 @@ public class SliderController : Controller
         return View(model);
     }
 
-    
+
     public ActionResult Delete(int? id)
     {
         if (id == null)
