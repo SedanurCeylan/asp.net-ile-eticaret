@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using System.Threading.Tasks;
 using e_ticaret_proje.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -119,9 +120,59 @@ public class AccountController : Controller
         return View();
     }
 
+   [Authorize]
+    public async Task<ActionResult> EditUser()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var user = await _userManager.FindByIdAsync(userId!);
+
+        if (user == null)
+        {
+            return RedirectToAction("Login", "Account");
+        }
+
+        return View(new AccountEditUserModel
+        {
+            AdSoyad = user.AdSoyad,
+            Email = user.Email!
+        });
+    }
+
+    [HttpPost]
+    [Authorize]
+    public async Task<ActionResult> EditUser(AccountEditUserModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = await _userManager.FindByIdAsync(userId!);
+
+            if (user != null)
+            {
+                user.Email = model.Email;
+                user.AdSoyad = model.AdSoyad;
+
+                var result = await _userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    TempData["Mesaj"] = "Bilgileriniz güncellendi";
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+        }
+        return View(model);
+    }
 
     public ActionResult AccessDenied()
     {
         return View();
     }
+
+
+
 } 

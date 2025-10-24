@@ -17,10 +17,13 @@
 <body class="bg-light">
 
     <header>
+    
+        
         @await Html.PartialAsync("Partials/Site/_Topbar")
-
+        
         @* her sayfada olmayabilir *@
         @RenderSection("Bar",required:false)
+        @await Html.PartialAsync("Partials/Admin/_Message")
         
     </header>
 
