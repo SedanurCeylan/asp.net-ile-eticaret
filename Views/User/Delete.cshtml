@@ -1,4 +1,4 @@
-@model Urun
+@model AppUser
 @{
     Layout= "_AdminLayout";
 }
@@ -9,12 +9,12 @@
     <div class="card">
         <div class="card-body text-center">
             <p>
-                @Model.UrunAdi isimli ürünü silmek istiyor musunuz?
+                @Model.AdSoyad isimli Kullanıcıyı silmek istiyor musunuz?
             </p>
-            <form asp-controller="Urun" asp-action="DeleteConfirm" method="post">
+            <form asp-controller="User" asp-action="DeleteConfirm" method="post">
                 <input type="hidden" name="id" value="@Model.Id">
                 <button type="submit" class="btn btn-danger">Sil</button>
-                <a asp-controller="Urun" asp-action="Index" class="btn btn-secondary">İptal</a>
+                <a asp-controller="User" asp-action="Index" class="btn btn-secondary">İptal</a>
             </form>
         </div>
     </div>

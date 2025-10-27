@@ -128,4 +128,44 @@ public async Task<ActionResult> Index(string role)
 
         return View(model);
     }
+
+        public async Task<ActionResult> Delete(string id)
+    {
+        if (id == null)
+        {
+            return RedirectToAction("Index");
+        }
+        var entity = await _userManager.FindByIdAsync(id);
+        if (entity != null)
+        {
+            return View(entity);
+        }
+        return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> DeleteConfirm(string id)
+    {
+
+        //burasyı uyarı verdirmesi için yaptık önce üstteki metot çalışoyor deleteye gönderiyor deletede evet dersek bu metod çalışıyor
+        if (id == null)
+        {
+            return RedirectToAction("Index");
+        }
+        var entity = await _userManager.FindByIdAsync(id);
+        if (entity != null)
+        {
+            var result = await _userManager.DeleteAsync(entity);
+
+            if (result.Succeeded)
+            {
+                TempData["Mesaj"] = $"{entity.AdSoyad} kullanıcısı silindi";
+            }
+
+            
+        }
+        return RedirectToAction("Index");
+    }
+
+
 }
