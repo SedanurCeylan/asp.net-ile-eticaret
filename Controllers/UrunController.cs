@@ -48,7 +48,7 @@ public class UrunController : Controller
 
 
     //tüm sayfa başına yazarsak bunu dışta tutuyoruz
-     [AllowAnonymous]
+    [AllowAnonymous]
     public ActionResult List(string url, string q)
     {
         var query = _context.Urunler.Where(i => i.Aktif);
@@ -67,6 +67,7 @@ public class UrunController : Controller
         return View(query.ToList());
     }
 
+    [AllowAnonymous]
     public ActionResult Details(int id)
     {
         //id bilgisine göre ürün getir

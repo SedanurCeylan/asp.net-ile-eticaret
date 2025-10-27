@@ -3,6 +3,7 @@ using e_ticaret_proje.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace e_ticaret_proje.Controllers;
@@ -20,11 +21,20 @@ public class UserController : Controller
         _userManager = userManager;
         _roleManager = roleManager;
     }
+public async Task<ActionResult> Index(string role)
+{
+    ViewBag.Roller = new SelectList(_roleManager.Roles, "Name", "Name",role);
 
-    public ActionResult Index()
+    if (string.IsNullOrEmpty(role))
     {
-        return View(_userManager.Users);
+        // Rol belirtilmediyse tüm kullanıcıları getir
+        return View(_userManager.Users.ToList());
     }
+
+    // Rol belirtilmişse o roldeki kullanıcıları getir
+    var usersInRole = await _userManager.GetUsersInRoleAsync(role);
+    return View(usersInRole);
+}
 
     public ActionResult Create()
     {
