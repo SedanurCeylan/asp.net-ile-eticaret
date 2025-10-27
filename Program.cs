@@ -83,4 +83,7 @@ app.MapControllerRoute(
     .WithStaticAssets();
 
 
+
+SeedDatabase.Initialize(app);
+
 app.Run();
