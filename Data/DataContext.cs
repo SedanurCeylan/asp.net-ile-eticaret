@@ -17,6 +17,7 @@ public class DataContext : IdentityDbContext<AppUser,AppRole,int>
     
     public DbSet<Slider> Sliderlar { get; set; }
 
+    public DbSet<Cart> Carts { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
