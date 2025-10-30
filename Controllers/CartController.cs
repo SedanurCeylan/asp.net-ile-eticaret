@@ -16,24 +16,19 @@ public class CartController : Controller
         _context = context;
     }
 
-    [HttpPost]
-    public async Task<ActionResult> AddToCart(int urunId, int miktar=1)
+    public async Task<ActionResult> Index()
     {
-        var customerId = User.Identity?.Name;
+        var cart = await GetCart();
 
-        var cart = await _context.Carts.Include(i => i.CartItems)
-                                        .Where(i => i.CustomerId == customerId)
-                                        .FirstOrDefaultAsync();
+        return View(cart);
+    }
 
-        if (cart == null)
-        {
-            cart = new Cart
-            {
-                CustomerId = customerId!
-            };
-            _context.Carts.Add(cart);
-        }
+    [HttpPost]
+    public async Task<ActionResult> AddToCart(int urunId, int miktar = 1)
+    {
 
+         var cart = await GetCart();
+        
         var item = cart.CartItems.Where(i => i.UrunId == urunId).FirstOrDefault();
 
         if (item != null)
@@ -45,8 +40,8 @@ public class CartController : Controller
         {
             cart.CartItems.Add(new CartItem
             {
-                UrunId= urunId,
-                Miktar=miktar
+                UrunId = urunId,
+                Miktar = miktar
             });
 
             //ilk defa ekleniyor
@@ -55,6 +50,29 @@ public class CartController : Controller
         await _context.SaveChangesAsync();
 
 
-        return RedirectToAction("Index","Home");
+        return RedirectToAction("Index", "Cart");
+    }
+    
+    private async Task<Cart> GetCart()
+    {
+        var customerId = User.Identity?.Name;
+
+        var cart = await _context.Carts.Include(i => i.CartItems)
+                                        .ThenInclude(i => i.Urun)
+                                        .Where(i => i.CustomerId == customerId)
+                                        .FirstOrDefaultAsync();
+
+        if (cart == null)
+        {
+            cart = new Cart
+            {
+                CustomerId = customerId!
+            };
+            _context.Carts.Add(cart); //change tracking 
+            // await _context.SaveChangesAsync();
+
+        }
+        return cart;
+
     }
 }
