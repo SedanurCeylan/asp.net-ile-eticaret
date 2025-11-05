@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace e_ticaret_proje.Controllers;
 
-[Authorize]
 public class CartController : Controller
 {
     private readonly DataContext _context;
@@ -27,35 +26,45 @@ public class CartController : Controller
     public async Task<ActionResult> AddToCart(int urunId, int miktar = 1)
     {
 
-         var cart = await GetCart();
-        
-        var item = cart.CartItems.Where(i => i.UrunId == urunId).FirstOrDefault();
+        var cart = await GetCart();
 
-        if (item != null)
+        var urun = await _context.Urunler.FirstOrDefaultAsync(i => i.Id == urunId);
+
+        if (urun != null)
         {
-            item.Miktar += 1;
-            //daha önce eklenmiş
+
+            cart.AddItem(urun, miktar);
+            await _context.SaveChangesAsync();
+            
         }
-        else
-        {
-            cart.CartItems.Add(new CartItem
-            {
-                UrunId = urunId,
-                Miktar = miktar
-            });
-
-            //ilk defa ekleniyor
-        }
-
-        await _context.SaveChangesAsync();
-
 
         return RedirectToAction("Index", "Cart");
     }
+
+
+    [HttpPost]
+    public async Task<ActionResult> RemoveItem(int urunId, int miktar)
+    {
+        var cart = await GetCart();
+
+        var urun = await _context.Urunler.FirstOrDefaultAsync(i => i.Id == urunId);
+
+        if (urun != null)
+        {
+
+            cart.DeleteItem(urunId, miktar);
+            await _context.SaveChangesAsync();
+
+        }
+        
+        return RedirectToAction("Index", "Cart");
+    }
+
     
+
     private async Task<Cart> GetCart()
     {
-        var customerId = User.Identity?.Name;
+        var customerId = User.Identity?.Name ?? Request.Cookies["customerId"];
 
         var cart = await _context.Carts.Include(i => i.CartItems)
                                         .ThenInclude(i => i.Urun)
@@ -64,9 +73,28 @@ public class CartController : Controller
 
         if (cart == null)
         {
+
+            customerId = User.Identity?.Name;
+
+            if (string.IsNullOrEmpty(customerId))
+            {
+                customerId = Guid.NewGuid().ToString();
+                var cookieOptions = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(7),
+                    IsEssential = true
+                };
+
+                Response.Cookies.Append("customerId", customerId, cookieOptions);
+
+            }
+
+
+
+
             cart = new Cart
             {
-                CustomerId = customerId!
+                CustomerId = customerId
             };
             _context.Carts.Add(cart); //change tracking 
             // await _context.SaveChangesAsync();
