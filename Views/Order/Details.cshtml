@@ -1,0 +1,91 @@
+@model Order
+@{
+    Layout="_AdminLayout";
+}
+
+   <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header py-1 d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Sipariş No: #@Model.OrderId</h5>
+                        <span class="badge bg-Primary p-2">Onay Bekliyor</span>
+                    </div>
+                    <div class="card-body">
+                         <div class="table-responsive">
+                            <table class="table table-bordered table-striped mb-0">
+                                <thead class="table-secondary">
+                                    <tr>
+                                        <th style="width: 40px;">Id</th>
+                                        <th style="width: 100px;">Resim</th>
+                                        <th>Ürün Adı</th>
+                                        <th>Fiyat</th>
+                                        <th>Adet</th>
+                                        <th>Toplam</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach(var item in Model.OrderItems)
+                                {
+                                    <tr>
+                                        <td>@item.UrunId</td>
+                                        <td>
+                                            <img src="~/img/@item.Urun.Resim" class="img-fluid" alt="">
+                                        </td>
+                                        <td>@item.Urun.UrunAdi</td>
+                                        <td>@item.Fiyat tl</td>
+                                        <td>@item.Miktar</td>
+                                        <td>@(item.Fiyat * item.Miktar) tl</td>
+                                    </tr>
+                                }
+                                    
+                                    <tr class="fw-bold">
+                                        <td colspan="4"></td>
+                                        <td>Ara Toplam</td>
+                                        <td>@Model.AraToplam()</td>
+                                    </tr>
+                                    <tr class="fw-bold">
+                                        <td colspan="4"></td>
+                                        <td>Vergi</td>
+                                        <td>@(Model.AraToplam() * 0.2) tl (%20)</td>
+                                    </tr>
+                                    <tr class="fw-bold">
+                                        <td colspan="4"></td>
+                                        <td>Kargo</td>
+                                        <td>0.00</td>
+                                    </tr>
+                                    <tr class="fw-bold">
+                                        <td colspan="4"></td>
+                                        <td>Toplam</td>
+                                        <td>@Model.ToplamFiyat tl</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                            <table class="table table-bordered mb-0 mt-3">
+                                <tr>
+                                    <td style="width: 200px;">Tahmini Teslim Tarihi:</td>
+                                    <td>@Model.SiparisTarihi.AddDays(3).ToShortDateString()</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 200px;">Ad Soyad:</td>
+                                    <td>@Model.AdSoyad</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 200px;">Teslimat Adresi:</td>
+                                    <td>@Model.AdresSatiri / @Model.Sehir / @Model.PostaKodu / @Model.Telefon</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 200px;">Fatura Adresi:</td>
+                                    <td>@Model.AdresSatiri / @Model.Sehir / @Model.PostaKodu / @Model.Telefon</td>
+                                </tr>
+                                 <tr>
+                                    <td style="width: 200px;">Ödeme Bilgileri:</td>
+                                    <td>1234-1234-****-**** (Yapı Kredi - 3 Taksit)</td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>

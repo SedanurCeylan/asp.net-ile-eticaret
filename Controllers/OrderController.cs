@@ -4,6 +4,7 @@ using e_ticaret_proje.Data;
 using e_ticaret_proje.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace e_ticaret_proje.Controllers;
 
@@ -18,6 +19,22 @@ public class OrderController : Controller
     {
         _cartService = cartService;
         _context = context;
+    }
+
+    [Authorize(Roles = "Admin")]
+    public ActionResult Index()
+    {
+        return View(_context.Orders.ToList());
+    }
+    
+    [Authorize(Roles ="Admin")]
+    public ActionResult Details(int id)
+    {
+        var order = _context.Orders
+                            .Include(i => i.OrderItems)
+                            .ThenInclude(i => i.Urun)
+                            .FirstOrDefault(i => i.OrderId == id);
+        return View(order);
     }
     public async Task<ActionResult> Checkout()
     {
@@ -65,9 +82,20 @@ public class OrderController : Controller
 
         return View(model);
     }
-    
+
     public ActionResult Completed(string orderId)
     {
-        return View("Completed" , orderId);
+        return View("Completed", orderId);
+    }
+    
+    public async Task<ActionResult> OrderList()
+    {
+        var username = User.Identity?.Name;
+        var orders = await _context.Orders
+                                .Include(i => i.OrderItems)
+                                .ThenInclude(i => i.Urun)
+                                .Where(i => i.Username == username)
+                                .ToListAsync();
+        return View(orders);
     }
 }
