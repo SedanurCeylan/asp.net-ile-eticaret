@@ -70,13 +70,23 @@
                                     <td style="width: 200px;">Ad Soyad:</td>
                                     <td>@Model.AdSoyad</td>
                                 </tr>
+                                @if(@Model.SiparisNotu!=null){
+                                    <tr>
+                                        <td style="width: 200px;">Sipariş Notu:</td>
+                                        <td>@Model.SiparisNotu</td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <td style="width: 200px;">Telefon No:</td>
+                                    <td>@Model.Telefon</td>
+                                </tr>
                                 <tr>
                                     <td style="width: 200px;">Teslimat Adresi:</td>
-                                    <td>@Model.AdresSatiri / @Model.Sehir / @Model.PostaKodu / @Model.Telefon</td>
+                                    <td>@Model.AdresSatiri / @Model.Sehir / @Model.PostaKodu</td>
                                 </tr>
                                 <tr>
                                     <td style="width: 200px;">Fatura Adresi:</td>
-                                    <td>@Model.AdresSatiri / @Model.Sehir / @Model.PostaKodu / @Model.Telefon</td>
+                                    <td>@Model.AdresSatiri / @Model.Sehir / @Model.PostaKodu</td>
                                 </tr>
                                  <tr>
                                     <td style="width: 200px;">Ödeme Bilgileri:</td>

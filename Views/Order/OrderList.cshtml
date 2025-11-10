@@ -58,19 +58,32 @@
                                                     @order.AdSoyad
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                   Sipariş Notu
-                                                </td>
-                                                 <td colspan="3">
-                                                    @order.SiparisNotu
-                                                </td>
+                                             @if(@order.SiparisNotu != null)
+                                             {
+                                                <tr>
+                                                    <td colspan="2">
+                                                    Sipariş Notu
+                                                    </td>
+                                                    <td colspan="3">
+                                                        @order.SiparisNotu
+                                                    </td>
+                                                </tr>
+                                             
+                                             }
                                             <tr>
                                                 <td colspan="2">
                                                    Teslimat Adresi
                                                 </td>
                                                  <td colspan="3">
                                                     @order.AdresSatiri / @order.Sehir / @order.PostaKodu / @order.Telefon
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                   Telefon Numarası
+                                                </td>
+                                                 <td colspan="3">
+                                                    @order.Telefon
                                                 </td>
                                             </tr>
                                             @foreach(var item in order.OrderItems){

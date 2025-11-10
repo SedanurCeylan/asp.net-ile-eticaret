@@ -28,9 +28,9 @@ public static class SeedDatabase
         {
             var admin = new AppUser
             {
-                AdSoyad = "Sedonur Ceylan",
-                UserName = "sedos",
-                Email = "sdnrcyln2@gmail.com"
+                AdSoyad = "Admin",
+                UserName = "admin",
+                Email = "admin@admin.com"
             };
 
 
