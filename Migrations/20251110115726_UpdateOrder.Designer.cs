@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using e_ticaret_proje.Data;
 
@@ -10,9 +11,11 @@ using e_ticaret_proje.Data;
 namespace e_ticaret_proje.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20251110115726_UpdateOrder")]
+    partial class UpdateOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
@@ -361,6 +364,7 @@ namespace e_ticaret_proje.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SiparisNotu")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("SiparisTarihi")
@@ -373,7 +377,7 @@ namespace e_ticaret_proje.Migrations
                     b.Property<double>("ToplamFiyat")
                         .HasColumnType("REAL");
 
-                    b.Property<string>("Username")
+                    b.Property<string>("Usename")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

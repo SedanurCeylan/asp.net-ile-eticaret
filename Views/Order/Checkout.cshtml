@@ -26,6 +26,8 @@
                         <h2 class="h6 mb-0">Sipariş Detayı</h2>
                     </div>
                     <div class="card-body">
+                    <form method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="row mb-3">
                             <div class="col">
                                 <label asp-for="AdSoyad" class="form-label">Ad Soyad</label>
@@ -58,6 +60,12 @@
                                 <textarea asp-for="SiparisNotu" class="form-control" rows="3"></textarea>
                             </div>
                         </div>
+                        <div class="d-grid">
+                            <button type="submit" asp-controller="Order" asp-action="Checkout" class="btn btn-primary btn-lg">
+                                Siparişi Tamamla
+                            </button>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -86,11 +94,7 @@
                         </div>
                     </div>
                 </div>
-                 <div class="d-grid">
-                    <a asp-controller="Order" asp-action="Checkout" class="btn btn-primary btn-lg">
-                        Siparişi Tamamla
-                    </a>
-                </div>
+                 
             </div>
        </div>
     </div>
