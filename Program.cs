@@ -1,4 +1,6 @@
+using dotnet_store.Services;
 using e_ticaret_proje.Models;
+using e_ticaret_proje.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IEmailService, SmtpEmailService>();
+builder.Services.AddTransient<ICartService, CartService>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

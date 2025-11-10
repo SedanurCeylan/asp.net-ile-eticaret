@@ -1,7 +1,7 @@
 using System.Net;
 using System.Net.Mail;
 
-namespace e_ticaret_proje.Models;
+namespace e_ticaret_proje.Services;
 
 
 public interface IEmailService
