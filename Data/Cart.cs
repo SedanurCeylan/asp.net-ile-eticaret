@@ -1,4 +1,4 @@
-namespace e_ticaret_proje.Models;
+namespace e_ticaret_proje.Data;
 
 
 public class Cart

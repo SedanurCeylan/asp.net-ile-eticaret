@@ -1,3 +1,4 @@
+using e_ticaret_proje.Data;
 using e_ticaret_proje.Models;
 using Microsoft.AspNetCore.Mvc;
 

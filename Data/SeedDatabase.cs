@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace e_ticaret_proje.Models;
+namespace e_ticaret_proje.Data;
 
 
 // database silindiğinde bile default bir admin kullanıcısı olsun diye

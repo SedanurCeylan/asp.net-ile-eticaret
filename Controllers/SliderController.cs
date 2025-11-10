@@ -1,6 +1,7 @@
 using e_ticaret_proje.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using e_ticaret_proje.Data;
 
 namespace e_ticaret_proje.Controllers;
 

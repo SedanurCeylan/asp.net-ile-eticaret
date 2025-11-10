@@ -1,4 +1,5 @@
 using dotnet_store.Services;
+using e_ticaret_proje.Data;
 using e_ticaret_proje.Models;
 using e_ticaret_proje.Services;
 using Microsoft.AspNetCore.Identity;

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace e_ticaret_proje.Models;
+namespace e_ticaret_proje.Data;
 
 public class DataContext : IdentityDbContext<AppUser,AppRole,int>
 {
@@ -18,6 +18,8 @@ public class DataContext : IdentityDbContext<AppUser,AppRole,int>
     public DbSet<Slider> Sliderlar { get; set; }
 
     public DbSet<Cart> Carts { get; set; }
+    public DbSet<Order> Orders { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

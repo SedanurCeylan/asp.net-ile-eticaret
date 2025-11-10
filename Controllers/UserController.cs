@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-
+using e_ticaret_proje.Data;
 namespace e_ticaret_proje.Controllers;
     
     [Authorize(Roles = "Admin")]

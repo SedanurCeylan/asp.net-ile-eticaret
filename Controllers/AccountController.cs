@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using dotnet_store.Services;
+using e_ticaret_proje.Data;
 
 namespace e_ticaret_proje.Controllers;
 

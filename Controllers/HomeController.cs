@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using e_ticaret_proje.Models;
+using e_ticaret_proje.Data;
 
 namespace e_ticaret_proje.Controllers;
 

@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using e_ticaret_proje.Models;
 using e_ticaret_proje.Data;
 
 #nullable disable
@@ -12,8 +11,8 @@ using e_ticaret_proje.Data;
 namespace e_ticaret_proje.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20251028140852_CartTables")]
-    partial class CartTables
+    [Migration("20251110110648_AddOrderTables")]
+    partial class AddOrderTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -120,7 +119,7 @@ namespace e_ticaret_proje.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.AppRole", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.AppRole", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -147,7 +146,7 @@ namespace e_ticaret_proje.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.AppUser", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.AppUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -216,7 +215,7 @@ namespace e_ticaret_proje.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.Cart", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.Cart", b =>
                 {
                     b.Property<int>("CartId")
                         .ValueGeneratedOnAdd()
@@ -231,7 +230,7 @@ namespace e_ticaret_proje.Migrations
                     b.ToTable("Carts");
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.CartItem", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.CartItem", b =>
                 {
                     b.Property<int>("CartItemId")
                         .ValueGeneratedOnAdd()
@@ -255,7 +254,7 @@ namespace e_ticaret_proje.Migrations
                     b.ToTable("CartItem");
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.Kategori", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.Kategori", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -342,7 +341,75 @@ namespace e_ticaret_proje.Migrations
                         });
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.Slider", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AdresSatiri")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PostaKodu")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Sehir")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("SiparisTarihi")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Telefon")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("ToplamFiyat")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Usename")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("e_ticaret_proje.Data.OrderItem", b =>
+                {
+                    b.Property<int>("OrderItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("Fiyat")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("Miktar")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UrunId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("OrderItemId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("UrunId");
+
+                    b.ToTable("OrderItem");
+                });
+
+            modelBuilder.Entity("e_ticaret_proje.Data.Slider", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -425,7 +492,7 @@ namespace e_ticaret_proje.Migrations
                         });
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.Urun", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.Urun", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -530,7 +597,7 @@ namespace e_ticaret_proje.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
-                    b.HasOne("e_ticaret_proje.Models.AppRole", null)
+                    b.HasOne("e_ticaret_proje.Data.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -539,7 +606,7 @@ namespace e_ticaret_proje.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
-                    b.HasOne("e_ticaret_proje.Models.AppUser", null)
+                    b.HasOne("e_ticaret_proje.Data.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -548,7 +615,7 @@ namespace e_ticaret_proje.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
-                    b.HasOne("e_ticaret_proje.Models.AppUser", null)
+                    b.HasOne("e_ticaret_proje.Data.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -557,13 +624,13 @@ namespace e_ticaret_proje.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
                 {
-                    b.HasOne("e_ticaret_proje.Models.AppRole", null)
+                    b.HasOne("e_ticaret_proje.Data.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("e_ticaret_proje.Models.AppUser", null)
+                    b.HasOne("e_ticaret_proje.Data.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -572,22 +639,22 @@ namespace e_ticaret_proje.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
-                    b.HasOne("e_ticaret_proje.Models.AppUser", null)
+                    b.HasOne("e_ticaret_proje.Data.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.CartItem", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.CartItem", b =>
                 {
-                    b.HasOne("e_ticaret_proje.Models.Cart", "Cart")
+                    b.HasOne("e_ticaret_proje.Data.Cart", "Cart")
                         .WithMany("CartItems")
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("e_ticaret_proje.Models.Urun", "Urun")
+                    b.HasOne("e_ticaret_proje.Data.Urun", "Urun")
                         .WithMany()
                         .HasForeignKey("UrunId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -598,9 +665,28 @@ namespace e_ticaret_proje.Migrations
                     b.Navigation("Urun");
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.Urun", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.OrderItem", b =>
                 {
-                    b.HasOne("e_ticaret_proje.Models.Kategori", "Kategori")
+                    b.HasOne("e_ticaret_proje.Data.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("e_ticaret_proje.Data.Urun", "Urun")
+                        .WithMany()
+                        .HasForeignKey("UrunId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Urun");
+                });
+
+            modelBuilder.Entity("e_ticaret_proje.Data.Urun", b =>
+                {
+                    b.HasOne("e_ticaret_proje.Data.Kategori", "Kategori")
                         .WithMany("uruns")
                         .HasForeignKey("KategoriId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -609,14 +695,19 @@ namespace e_ticaret_proje.Migrations
                     b.Navigation("Kategori");
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.Cart", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.Cart", b =>
                 {
                     b.Navigation("CartItems");
                 });
 
-            modelBuilder.Entity("e_ticaret_proje.Models.Kategori", b =>
+            modelBuilder.Entity("e_ticaret_proje.Data.Kategori", b =>
                 {
                     b.Navigation("uruns");
+                });
+
+            modelBuilder.Entity("e_ticaret_proje.Data.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }

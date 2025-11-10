@@ -451,6 +451,16 @@ C:/Users/DEEP THINK/Desktop/kisisel/e-ticaret-proje/obj/Debug/net9.0/e-ticaret-p
 /Users/seda/Desktop/admin-proje/asp.net-ile-eticaret/obj/Debug/net9.0/e-ticaret-proje.pdb
 /Users/seda/Desktop/admin-proje/asp.net-ile-eticaret/obj/Debug/net9.0/e-ticaret-proje.genruntimeconfig.cache
 /Users/seda/Desktop/admin-proje/asp.net-ile-eticaret/obj/Debug/net9.0/ref/e-ticaret-proje.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.csproj.AssemblyReference.cache
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.AssemblyInfoInputs.cache
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.AssemblyInfo.cs
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.csproj.CoreCompileInputs.cache
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.RazorAssemblyInfo.cache
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.RazorAssemblyInfo.cs
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.sourcelink.json
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\appsettings.json
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\e-ticaret-proje.staticwebassets.runtime.json
@@ -461,6 +471,9 @@ C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\e-tica
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\e-ticaret-proje.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\e-ticaret-proje.pdb
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Humanizer.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Build.Locator.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
@@ -481,6 +494,8 @@ C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Micros
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
@@ -581,20 +596,12 @@ C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\runtim
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.csproj.AssemblyReference.cache
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\rpswa.dswa.cache.json
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.AssemblyInfoInputs.cache
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.AssemblyInfo.cs
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.csproj.CoreCompileInputs.cache
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.RazorAssemblyInfo.cache
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.RazorAssemblyInfo.cs
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.sourcelink.json
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\scopedcss\bundle\e-ticaret-proje.styles.css
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\kcq61if28l-75e56g2q4j.gz
+C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\6eobabc573-l1jao3f9o2.gz
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\wa9v4v1umj-61n19gt1b8.gz
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\gcvw5sfrpt-f6guyl0605.gz
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\ts3dssctx7-xtxxf3hu2r.gz
@@ -667,10 +674,3 @@ C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\refint
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.pdb
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\e-ticaret-proje.genruntimeconfig.cache
 C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\ref\e-ticaret-proje.dll
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\kcq61if28l-75e56g2q4j.gz
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\obj\Debug\net9.0\compressed\6eobabc573-l1jao3f9o2.gz
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\DEEP THINK\Desktop\kisisel\asp.net-ile-eticaret\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
